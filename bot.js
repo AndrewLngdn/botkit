@@ -81,6 +81,19 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+controller.setupWebserver(process.env.port,function(err,webserver) {
+  controller.createWebhookEndpoints(controller.webserver);
+
+  controller.createOauthEndpoints(controller.webserver,function(err,req,res) {
+    if (err) {
+      res.status(500).send('ERROR: ' + err);
+    } else {
+      res.send('Success!');
+    }
+  });
+});
+
+
 var scawks = ["BRRAK!", "SCRAAAAAW", "RAAAAAARRRK", "REEEEEEEEEEE"];
 
 
