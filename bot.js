@@ -38,10 +38,10 @@ controller.hears(['uptime','identify yourself','who are you','what is your name'
   bot.reply(message,"SCRAAWK!");
 });
 
-controller.hears(['fact'], ['direct_message','direct_mention','mention','ambient'], function(bot, message){
+controller.hears(['fact'], ['direct_message','direct_mention','mention'], function(bot, message){
   var facts = bird_stuff["facts"];
   var fact = facts[Math.floor(Math.random()*facts.length)];
 
-  bot.reply(message, "BirdFact: " + fact);
+  bot.reply(message, fact);
 });
 
