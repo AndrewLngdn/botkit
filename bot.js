@@ -45,3 +45,9 @@ controller.hears(['fact'], ['direct_message','direct_mention','mention'], functi
   bot.reply(message, fact);
 });
 
+controller.hears(['law'], ['direct_message','direct_mention','mention'], function(bot, message){
+  var laws = bird_stuff["law"];
+  var law = laws[Math.floor(Math.random()*laws.length)];
+
+  bot.reply(message, law);
+});
